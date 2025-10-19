@@ -2366,5 +2366,5 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             window.location.href = '../heart/index.html';
         }, 2100);
-    }, 50000); // 30 seconds
+    }, 60000); // 30 seconds
 });

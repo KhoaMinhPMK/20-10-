@@ -483,11 +483,11 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--1 {
   left: 20%;
-  bottom: 8vmin;
+  bottom: 6.4vmin;
   animation: moving-flower-1 4s linear infinite;
 }
 .flower--1 .flower__line {
-  height: 80vmin;
+  height: 64vmin;
   animation-delay: 0.3s;
 }
 .flower--1 .flower__line__leaf--1 {
@@ -510,12 +510,12 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--2 {
   left: 50%;
-  bottom: 10vmin;
+  bottom: 8vmin;
   transform: rotate(15deg);
   animation: moving-flower-2 4s linear infinite;
 }
 .flower--2 .flower__line {
-  height: 75vmin;
+  height: 60vmin;
   animation-delay: 0.6s;
 }
 .flower--2 .flower__line__leaf--1 {
@@ -532,12 +532,12 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--3 {
   left: 75%;
-  bottom: 7vmin;
+  bottom: 5.6vmin;
   transform: rotate(-12deg);
   animation: moving-flower-3 4s linear infinite;
 }
 .flower--3 .flower__line {
-  height: 70vmin;
+  height: 56vmin;
   animation-delay: 0.9s;
 }
 .flower--3 .flower__line__leaf--1 {
@@ -554,13 +554,13 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--4 {
   left: 35%;
-  bottom: 8vmin;
+  bottom: 6.4vmin;
   transform: rotate(-12deg);
   animation: moving-flower-2 4s 0.5s linear infinite;
   z-index: 100;
 }
 .flower--4 .flower__line {
-  height: 38vmin;
+  height: 30.4vmin;
   animation-delay: 0.5s;
 }
 .flower--4 .flower__line__leaf--1 {
@@ -574,13 +574,13 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--5 {
   left: 63%;
-  bottom: 10vmin;
+  bottom: 8vmin;
   transform: rotate(-10deg);
   animation: moving-flower-1 4s 1s linear infinite;
   z-index: 100;
 }
 .flower--5 .flower__line {
-  height: 35vmin;
+  height: 28vmin;
   animation-delay: 0.7s;
 }
 .flower--5 .flower__line__leaf--1 {
@@ -594,13 +594,13 @@ body.flying-to-sky .heartbeat-container {
 }
 .flower--6 {
   left: 12%;
-  bottom: 12vmin;
+  bottom: 9.6vmin;
   transform: rotate(-15deg);
   animation: moving-flower-3 4s 1.2s linear infinite;
   z-index: 100;
 }
 .flower--6 .flower__line {
-  height: 40vmin;
+  height: 32vmin;
   animation-delay: 0.4s;
 }
 .flower--6 .flower__line__leaf--1 {
