@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+} 
+:root {
+  --depth: 5vmin;
+  --on: 0;
+  --size: 25vmin;
+  --bg: hsl(calc(270 + (var(--on) * 20)), calc((35 + (var(--on) * 25)) * 1%), calc((15 + (var(--on) * 65)) * 1%));
+  --cord: hsl(280, calc((30 - (var(--on) * 20)) * 1%), calc((60 - (var(--on) * 30)) * 1%));
+  --stroke: hsl(280, calc((20 - (var(--on) * 10)) * 1%), calc((60 - (var(--on) * 30)) * 1%));
+  --shine: hsla(280, 60%, calc((95 - (var(--on) * 20)) * 1%), calc(0.75 - (var(--on) * 0.5)));
+  --cap: hsl(270, calc((25 + (var(--on) * 15)) * 1%), calc((40 + (var(--on) * 35)) * 1%));
+  --filament: hsl(45, calc(var(--on) * 80%), calc((25 + (var(--on) * 75)) * 1%));
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+label {
+  position: absolute;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+input {
+  height: 0;
+  width: 0;
+  position: fixed;
+  left: 100%;
+  transform: scale(0);
+}
+.toggle {
+  height: var(--size);
+  width: var(--size);
+  transform: translate(-50%, -100%);
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -100%, calc(var(--depth) * 3));
+}
+.toggle-scene {
+  overflow: visible !important;
+  width: 100%;
+  position: absolute;
+}
+.toggle-scene__arm {
+  display: none;
+}
+.toggle-scene__cord {
+  stroke: var(--cord);
+  cursor: move;
+}
+.toggle-scene__cord:nth-of-type(1) {
+  display: none;
+}
+.toggle-scene__cord:nth-of-type(2),
+.toggle-scene__cord:nth-of-type(3),
+.toggle-scene__cord:nth-of-type(4),
+.toggle-scene__cord:nth-of-type(5) {
+  display: none;
+}
+.toggle-scene__cord-end {
+  stroke: var(--cord);
+  fill: var(--cord);
+}
+.toggle-scene__dummy-cord {
+  stroke-width: 6;
+  stroke: var(--cord);
+}
+.bulb__filament {
+  stroke: var(--filament);
+}
+.bulb__shine {
+  stroke: var(--shine);
+}
+.bulb__flash {
+  stroke: #f5e0a3;
+  display: none;
+}
+.bulb__bulb {
+  stroke: var(--stroke);
+  fill: hsla(calc(280 + (40 * var(--on))), calc((40 + (40 * var(--on))) * 1%), calc((70 + (10 * var(--on))) * 1%), calc(0.1 + (0.4 * var(--on))));
+}
+.bulb__cap {
+  fill: var(--cap);
+}
+.bulb__cap-shine {
+  fill: var(--shine);
+}
+.bulb__cap-outline {
+  stroke: var(--stroke);
+}
+.bear {
+  display: none;
+}
+.bear__fur {
+  fill: #784421;
+}
+.bear__pad {
+  fill: #deaa87;
+}
+.doorway {
+  position: absolute;
+  top: 50%;
+  height: calc(var(--size) * 4);
+  width: calc(var(--size) * 1.5);
+  transform: translate(0, calc(var(--size) * -0.75));
+  left: calc(50% + (var(--size) * 0.5));
+  -webkit-clip-path: inset(0 0 0 -200%);
+  clip-path: inset(0 0 0 -200%);
+}
+.doorway__opening {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: hsl(270, 40%, 8%);
+  transform: translate3d(0, 0, calc(var(--depth) * -1));
+}
+.bear {
+  position: absolute;
+  top: 10%;
+  width: var(--size);
+}
+.door {
+  --panel: hsl(270, 30%, calc(18% + (var(--on) * 45%)));
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+.door__panel {
+  width: 30%;
+  height: 35%;
+  position: absolute;
+  border: 1vmin var(--panel) solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate(var(--x), var(--y));
+}
+.door__panel:nth-of-type(1) {
+  --x: -70%;
+  --y: -70%;
+}
+.door__panel:nth-of-type(2) {
+  --x: 70%;
+  --y: -70%;
+}
+.door__panel:nth-of-type(3) {
+  --x: -70%;
+  --y: 70%;
+}
+.door__panel:nth-of-type(4) {
+  --x: 70%;
+  --y: 70%;
+}
+.door__handle {
+  height: 4vmin;
+  width: 4vmin;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translate3d(0, -50%, 1vmin);
+}
+.door__handle > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(280, 50%, calc((var(--lightness, 30%)) + (var(--on) * 35%)));
+}
+.door__handle > div:nth-of-type(1) {
+  --lightness: 25%;
+}
+.door__handle > div:nth-of-type(2) {
+  --lightness: 30%;
+  transform: translate3d(0, 0, calc(var(--depth) * 1));
+}
+.door__side {
+  position: absolute;
+}
+.door__side:nth-of-type(1) {
+  --lightness: 25%;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+  z-index: 3;
+  background-color: hsl(270, 25%, calc((var(--lightness, 20%)) + (var(--on) * 45%)));
+}
+.door__side:nth-of-type(2) {
+  --lightness: 15%;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, calc(var(--depth) * -1));
+}
+.door__side {
+  background-color: hsl(270, 25%, calc((var(--lightness, 20%)) + (var(--on) * 45%)));
+}
+
+/* Countdown Timer */
+.countdown-timer {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  color: hsl(280, 60%, calc((75 - (var(--on) * 15)) * 1%));
+  font-family: 'Arial', sans-serif;
+}
+
+.countdown-timer__title {
+  font-size: 2vmin;
+  margin-bottom: 1vmin;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.countdown-timer__display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vmin;
+  background: hsla(270, 50%, calc((15 + (var(--on) * 40)) * 1%), 0.4);
+  padding: 2vmin 3vmin;
+  border-radius: 1.5vmin;
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(280, 40%, calc((35 + (var(--on) * 25)) * 1%), 0.4);
+  box-shadow: 0 4px 15px hsla(280, 60%, 50%, 0.2);
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 6vmin;
+}
+
+.time-value {
+  font-size: 5vmin;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.time-label {
+  font-size: 1.5vmin;
+  margin-top: 0.5vmin;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.time-separator {
+  font-size: 5vmin;
+  font-weight: bold;
+  opacity: 0.6;
+  padding: 0 0.5vmin;
+}
+
+/* Pull Instruction */
+.pull-instruction {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: hsl(280, 60%, calc((75 - (var(--on) * 15)) * 1%));
+  font-size: 2.5vmin;
+  font-weight: 600;
+  text-align: center;
+  z-index: 5;
+  white-space: nowrap;
+  animation: pulse 2s ease-in-out infinite;
+  text-shadow: 0 2px 8px rgba(138, 43, 226, 0.5);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Truck Button Overrides - purple theme and positioning */
+.truck-button {
+  --background: #7c3aed !important;
+  --base: #581c87 !important;
+  --wheel: #6b21a8 !important;
+  --wheel-inner: #9333ea !important;
+  --back: #a855f7 !important;
+  --back-inner: #7c3aed !important;
+  --back-inner-shadow: #6b21a8 !important;
+  --front: #c084fc !important;
+  --front-shadow: #9333ea !important;
+  --window: #6b21a8 !important;
+  --window-shadow: #581c87 !important;
+  --street: #9333ea !important;
+  --street-fill: #7c3aed !important;
+  --box: #e9d5ff !important;
+  --box-shadow: #c084fc !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) rotateX(var(--rx, 0deg)) translateZ(0) !important;
+  z-index: 10001 !important;
+}
+
+.truck-button .default {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
